@@ -1,0 +1,2 @@
+export const OPEN_PROJECT_FORM = 'OPEN_PROJECT_FORM';
+
