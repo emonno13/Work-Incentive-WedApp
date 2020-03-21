@@ -12,15 +12,17 @@ import {
   Toolbar,
   Typography,
   Box,
+  Avatar,
   useTheme
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Switch, Route, NavLink } from "react-router-dom";
 import useStyles, { StyledBadge } from "./style";
-import PageIT from "../pages/ITPage/index";
-import PageSales from "../pages/SalePage/index";
-import PageProject from "../pages/ProjectPage/index";
+import ITPage from "../pages/ITPage/index";
+import SalePage from "../pages/SalePage/index";
+import ProjectPage from "../pages/ProjectPage/index";
 import ProjectDetail from "../pages/ProjectPage/ProjectDetail/ProjectDetail";
+import MarketingPage from "../pages/MarketingPage/index";
 //import ProjectAll from "../pages/ProjectPage/ProjectAll/ProjectAll";
 
 const MainTab = (props) => {
@@ -114,10 +116,12 @@ const MainTab = (props) => {
             </Typography>
             <Divider orientation="vertical" flexItem />
             <StyledBadge badgeContent={6} color="primary">
-              <img
-                src="https://kenh14cdn.com/thumb_w/640/2019/4/25/hai9398-15561851877211598194299-crop-15561853627471592918271.jpg"
-                alt="chipu"
+              <Avatar
+                alt="User"
                 className={classes.avatarAppBar}
+                src={
+                  "https://kenh14cdn.com/thumb_w/640/2019/4/25/hai9398-15561851877211598194299-crop-15561853627471592918271.jpg"
+                }
               />
             </StyledBadge>
           </Box>
@@ -159,10 +163,11 @@ const MainTab = (props) => {
         <Box component="div" className={classes.toolbar} />
 
         <Switch onClick={handleDrawerToggle}>
-          <Route exact path="/Project" component={PageProject} />
+          <Route exact path="/Project" component={ProjectPage} />
           <Route path="/Project/:id" component={ProjectDetail} />
-          <Route path="/IT" component={PageIT} />
-          <Route path="/sales" component={PageSales} />
+          <Route path="/IT" component={ITPage} />
+          <Route path="/Sales" component={SalePage} />
+          <Route path="/Marketing" component={MarketingPage} />
         </Switch>
       </Box>
     </Box>

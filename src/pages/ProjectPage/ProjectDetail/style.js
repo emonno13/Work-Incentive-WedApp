@@ -17,8 +17,8 @@ export default makeStyles((theme) => ({
     color: "#25828b"
   },
   textTime: {
-    marginLeft: 50,
-    marginBottom: 20
+    marginLeft: 45,
+    margin: 20
   },
   rootPaper: {
     padding: theme.spacing(5),
@@ -33,7 +33,7 @@ export default makeStyles((theme) => ({
   },
   headerTitle: {
     fontWeight: "500",
-    fontSize: 20,
+    fontSize: "1rem",
     color: "#25252a"
   },
   textDescription: {
@@ -42,7 +42,7 @@ export default makeStyles((theme) => ({
     color: "#8282,96"
   },
   viewAll: {
-    fontSize: 16,
+    fontSize: "0.5 rem",
     fontWeight: "500",
     lineHeight: 0.88,
     color: "#25828b"

@@ -8,7 +8,6 @@ import {
   Button,
   Paper,
   Avatar,
-  Divider,
   Tooltip,
   List,
   ListItem,
@@ -16,17 +15,17 @@ import {
   ListItemIcon
 } from "@material-ui/core";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import EditIcon from "@material-ui/icons/Edit";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-import BuildIcon from "@material-ui/icons/Build";
+import AppleIcon from "@material-ui/icons/Apple";
 import Rating from "@material-ui/lab/Rating";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import ClearIcon from "@material-ui/icons/Clear";
 import { NavLink } from "react-router-dom";
 import useStyles from "./style";
 import uuid from "uuid/v1";
+import ReadMoreText from "../../../components/ReadMoreText";
 
 const data = {
   time: "15 Mar 2018 - present",
@@ -64,10 +63,10 @@ const data = {
   ],
   files: [
     {
-      name: "file number onedfdsfds afdasfadfsdafdsaf"
+      name: "file_number_onedf-dsfds_afda-sfad_fsdaf-dsaf_djfdfs-fsdfsd-fsdklf"
     },
     {
-      name: "file number one"
+      name: "file_number_onefdfdsafdsafdsafsadfasfasdfsadfafdfdsffdsfs"
     }
   ],
   members: [
@@ -111,7 +110,7 @@ const ProjectDetail = ({ match }) => {
               <ArrowBackIcon className={classes.backButton} />
             </IconButton>
           </Grid>
-          <Grid item xs={"true"}>
+          <Grid item xs={9}>
             <Typography variant="h4" component="h1">
               {`${match.params.id}`}
             </Typography>
@@ -140,7 +139,7 @@ const ProjectDetail = ({ match }) => {
         {/*4 TABS*/}
         <Grid container direction="row" justify="space-between">
           {/*PROJECT  DESCRIPTION*/}
-          <Grid item xl={12} md={6}>
+          <Grid item xs={12} lg={6}>
             <Grid item xs={12}>
               <Paper elevation={7} className={classes.rootPaper}>
                 <Box component="div" className={classes.headerPaper}>
@@ -151,9 +150,13 @@ const ProjectDetail = ({ match }) => {
                     <EditIcon className={classes.iconEditButton} />
                   </IconButton>
                 </Box>
-                <Typography className={classes.textDescription}>
-                  {data.projectDescription}
-                </Typography>
+                <ReadMoreText
+                  children={
+                    <Typography className={classes.textDescription}>
+                      {data.projectDescription}
+                    </Typography>
+                  }
+                />
               </Paper>
             </Grid>
             {/*ATTACHMENTS*/}
@@ -164,6 +167,7 @@ const ProjectDetail = ({ match }) => {
                     ATTACHMENTS
                   </Typography>
                 </Box>
+
                 {data.files.length > 0 && (
                   <List style={{ marginTop: 5 }}>
                     {data.files.map((file, i) => (
@@ -180,9 +184,24 @@ const ProjectDetail = ({ match }) => {
                             <FileCopyIcon style={{ color: "#25828b" }} />
                           </ListItemIcon>
                           <ListItemText
-                            primary={file.name}
-                            style={{ color: "#25828b" }}
+                            primary={
+                              <Tooltip title={file.name}>
+                                <Typography
+                                  style={{
+                                    color: "red",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis"
+                                  }}
+                                  //noWrap={true}
+                                  paragraph={true}
+                                >
+                                  {file.name}
+                                </Typography>
+                              </Tooltip>
+                            }
+                            disableTypography
                           />
+
                           <Tooltip title="Download">
                             <IconButton edge="end">
                               <GetAppIcon style={{ color: "#4a4a4a" }} />
@@ -202,13 +221,13 @@ const ProjectDetail = ({ match }) => {
             </Grid>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={12} lg={6}>
             {/*TASKS*/}
             <Grid item xs={12}>
               <Paper elevation={7} className={classes.rootPaper}>
                 <Box component="div" className={classes.headerPaper}>
                   <Typography className={classes.headerTitle}>
-                    {`TASKS ( ${data.task.length} )`}
+                    {`TASKS (${data.task.length})`}
                   </Typography>
                   <Button className={classes.viewAll}>View all</Button>
                 </Box>
@@ -234,7 +253,7 @@ const ProjectDetail = ({ match }) => {
                           // onChange={(event, newValue) => {
                           //   setValue(newValue);
                           // }}
-                          icon={<BuildIcon fontSize="inherit" />}
+                          icon={<AppleIcon fontSize="inherit" />}
                         />
                         <Typography className={classes.timeTaskItem}>
                           {`(${item.dayLeft} days late)`}
@@ -257,7 +276,7 @@ const ProjectDetail = ({ match }) => {
                 </Box>
                 {data.members.map((item) => (
                   <Box component="div" className={classes.rootMember}>
-                    <Grid container item xs={1}>
+                    <Grid container item xs={2}>
                       <Avatar alt="User" src={item.avatar} />
                     </Grid>
                     <Grid

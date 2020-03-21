@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Grid, Typography, CardActionArea } from "@material-ui/core";
+import { Grid, Typography, CardActionArea, Box } from "@material-ui/core";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import { openProjectForm } from "../../../redux/actions/index";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +11,7 @@ const projects = [
   {
     image:
       "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-    title: "Vinhomes project",
+    title: "Vinhomes project is just a outstanding performance in USA",
     month: "15 Mar 2018 - present"
   },
   {
@@ -23,7 +23,8 @@ const projects = [
   {
     image:
       "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-    title: "Vinhomes project",
+    title:
+      "Vinhomes projectfdsfsdafdsafsadfsafsafdasdfsafsdafadsfasdfasdfasfdsfdsaffdsafsf",
     month: "15 Mar 2018 - present"
   },
   {
@@ -68,7 +69,7 @@ const ProjectAll = (props) => {
   return useMemo(() => {
     console.log(open);
     return (
-      <div className={classes.root}>
+      <Box component="div" className={classes.root}>
         <ProjectForm />
         <Typography className={classes.title}> Projects </Typography>
         <Grid container spacing={3}>
@@ -93,7 +94,7 @@ const ProjectAll = (props) => {
             />
           ))}
         </Grid>
-      </div>
+      </Box>
     );
   });
 };

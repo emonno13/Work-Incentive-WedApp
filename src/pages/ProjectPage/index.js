@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import ProjectAll from "./ProjectAll/ProjectAll";
 import ProjectDetail from "./ProjectDetail/ProjectDetail";
-const PageProject = (props) => {
+const ProjectPage = (props) => {
   return (
     <>
       <Switch>
@@ -13,4 +13,4 @@ const PageProject = (props) => {
   );
 };
 
-export default PageProject;
+export default ProjectPage;

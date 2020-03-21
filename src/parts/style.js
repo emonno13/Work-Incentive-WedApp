@@ -38,7 +38,9 @@ export const StyledBadge = withStyles((theme) => ({
 
 export default makeStyles((theme) => ({
   root: {
-    display: "flex"
+    display: "flex",
+    minHeight: "100vh",
+    background: "#f7f8fa"
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
