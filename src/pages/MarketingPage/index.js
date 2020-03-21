@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Box, Grid, Avatar } from "@material-ui/core";
+import MemberTable from "./components/MemberTable";
 import useStyles from "./style";
 
 const data = {
@@ -23,8 +24,8 @@ const MarketingPage = (props) => {
       <Typography className={classes.managerTitle}>
         {`MANAGER ${data.manager.length}`}
       </Typography>
+      {/*MANAGERS ROW */}
       <Grid container>
-        {/*Manager */}
         <Grid container xs={8}>
           {data.manager.map((item) => (
             <Box component="div" className={classes.rootMember}>
@@ -69,7 +70,10 @@ const MarketingPage = (props) => {
           </Box>
         </Grid>
       </Grid>
-      <p>table</p>
+      {/*TABLE ROW */}
+      <Box component="div" style={{ marginTop: 20 }}>
+        <MemberTable />
+      </Box>
     </Box>
   );
 };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Truncate from "react-truncate";
-import { Typography, Box, Button } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 
 class ReadMore extends Component {
   constructor(...args) {
@@ -51,7 +51,7 @@ class ReadMore extends Component {
           }
           onTruncate={this.handleTruncate}
         >
-          {children}
+          <Typography align="justify">{children}</Typography>
         </Truncate>
         {!truncated && expanded && (
           <Box component="span">
