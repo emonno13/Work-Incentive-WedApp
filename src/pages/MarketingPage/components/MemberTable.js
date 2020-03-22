@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import clsx from "clsx";
-import { lighten, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
   TableBody,
@@ -11,66 +10,41 @@ import {
   TablePagination,
   TableRow,
   TableSortLabel,
-  Toolbar,
   Typography,
   Paper,
-  Tooltip,
-  FormControlLabel,
-  Switch,
-  IconButton,
   Box,
-  Avatar
+  Avatar,
+  Grid
 } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import FilterListIcon from "@material-ui/icons/FilterList";
+
 import ReadMoreText from "../../../components/ReadMoreText";
-const createData = (
-  id,
-  avatar,
-  name,
-  task,
-  difficulty,
-  time,
-  result,
-  total
-) => {
-  return { id, avatar, name, task, difficulty, time, result, total };
-};
+// const createData = (
+//   id,
+//   avatar,
+//   name,
+//   task,
+//   difficulty,
+//   time,
+//   result,
+//   total
+// ) => {
+//   return { id, avatar, name, task, difficulty, time, result, total };
+// };
 
-const rows = [
-  createData(
-    1,
-    "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
-    "Khanh",
-    "In Vinhomes residencial projects, cultural and sports activities are widely made and developed with exciting atmosphere, contributing to the creation of a civilized and class community, creating relationships among family members as well as building relationships in the neighborhood. Show less",
-    "Medium",
-    4,
-    2,
-    5
-  ),
-  createData(
-    2,
-    "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
-    "Irena",
-    "fsdfsdfasdf",
-    "Medium",
-    5,
-    6,
-    7
-  ),
-  createData(
-    3,
-    "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
-    "Truong Nguyen Ngan Ha Thieu",
-    "fdsfsdfsdf",
-    "Easy",
-    3,
-    2,
-    1
-  )
-];
+// const rows = [
+//   createData(
+//     1,
+//     "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
+//     "Khanh",
+//     "In Vinhomes residencial projects, cultural and sports activities are widely made and developed with exciting atmosphere, contributing to the creation of a civilized and class community, creating relationships among family members as well as building relationships in the neighborhood. Show less",
+//     "Medium",
+//     4,
+//     2,
+//     5
+//   ),
+// ];
 
-function descendingComparator(a, b, orderBy) {
+const descendingComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
     return -1;
   }
@@ -78,15 +52,15 @@ function descendingComparator(a, b, orderBy) {
     return 1;
   }
   return 0;
-}
+};
 
-function getComparator(order, orderBy) {
+const getComparator = (order, orderBy) => {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
-}
+};
 
-function stableSort(array, comparator) {
+const stableSort = (array, comparator) => {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
@@ -94,7 +68,7 @@ function stableSort(array, comparator) {
     return a[1] - b[1];
   });
   return stabilizedThis.map((el) => el[0]);
-}
+};
 
 const headCells = [
   {
@@ -178,70 +152,50 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired
 };
 
-const useToolbarStyles = makeStyles((theme) => ({
-  root: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1)
-  },
-  highlight:
-    theme.palette.type === "light"
-      ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85)
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark
-        },
-  title: {
-    flex: "1 1 100%"
-  }
-}));
+// const EnhancedTableToolbar = (props) => {
+//   const classes = useToolbarStyles();
+//   const { numSelected } = props;
 
-const EnhancedTableToolbar = (props) => {
-  const classes = useToolbarStyles();
-  const { numSelected } = props;
+//   return (
+//     <Toolbar
+//       className={clsx(classes.root, {
+//         [classes.highlight]: numSelected > 0
+//       })}
+//     >
+//       {numSelected > 0 ? (
+//         <Typography
+//           className={classes.title}
+//           color="inherit"
+//           variant="subtitle1"
+//         >
+//           {numSelected} selected
+//         </Typography>
+//       ) : (
+//         <Typography className={classes.title} variant="h6" id="tableTitle">
+//           Members
+//         </Typography>
+//       )}
 
-  return (
-    <Toolbar
-      className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0
-      })}
-    >
-      {numSelected > 0 ? (
-        <Typography
-          className={classes.title}
-          color="inherit"
-          variant="subtitle1"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle">
-          Members
-        </Typography>
-      )}
+//       {numSelected > 0 ? (
+//         <Tooltip title="Delete">
+//           <IconButton aria-label="delete">
+//             <DeleteIcon />
+//           </IconButton>
+//         </Tooltip>
+//       ) : (
+//         <Tooltip title="Filter list">
+//           <IconButton aria-label="filter list">
+//             <FilterListIcon />
+//           </IconButton>
+//         </Tooltip>
+//       )}
+//     </Toolbar>
+//   );
+// };
 
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton aria-label="filter list">
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
-  );
-};
-
-EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired
-};
+// EnhancedTableToolbar.propTypes = {
+//   numSelected: PropTypes.number.isRequired
+// };
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -253,6 +207,18 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 750
+  },
+  textName: {
+    color: "#25828b",
+    lineHeight: 0.88,
+    fontSize: 16,
+    fontWeight: 500
+    //alignSelf: "flex-start"
+  },
+  textContent: {
+    color: "#828296",
+    lineHeight: 1.63,
+    fontSize: 16
   },
   visuallyHidden: {
     border: 0,
@@ -267,15 +233,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
+  // const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  const rows = props.data;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -300,14 +266,13 @@ export default function EnhancedTable() {
     setPage(0);
   };
 
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
-  };
+  // const handleChangeDense = (event) => {
+  //   setDense(event.target.checked);
+  // };
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
@@ -355,43 +320,69 @@ export default function EnhancedTable() {
                         scope="row"
                         padding="none"
                       >
-                        {row.id}
-                      </TableCell>
-                      <TableCell align="left" justifyContent="flex-start">
-                        <Box
-                          component="div"
-                          style={{
-                            display: "flex",
-                            alignItems: "center"
-                          }}
-                        >
-                          <Avatar src={row.avatar} alt="User" />
-                          <Typography style={{ marginLeft: 10 }}>
-                            {row.name}
-                          </Typography>
-                        </Box>
+                        <Typography className={classes.textContent}>
+                          {row.id}
+                        </Typography>
                       </TableCell>
                       <TableCell align="left">
-                        <ReadMoreText
-                          children={
-                            <Typography align="justify" paragraph="true">
-                              {row.task}
+                        <Grid
+                          container
+                          alignItems="center"
+                          justify="space-between"
+                        >
+                          <Grid item xs={12} lg={2}>
+                            <Avatar src={row.avatar} alt="User" />
+                          </Grid>
+                          <Grid item xs={12} lg={8}>
+                            <Typography className={classes.textName}>
+                              {row.name}
                             </Typography>
-                          }
-                        />
+                          </Grid>
+                        </Grid>
                       </TableCell>
-                      <TableCell align="center">{row.difficulty}</TableCell>
-                      <TableCell align="center">{`${row.time}%`}</TableCell>
-                      <TableCell align="center">{`${row.result}%`}</TableCell>
-                      <TableCell align="center">{`${row.total}%`}</TableCell>
+                      <TableCell align="left" width={300}>
+                        <Box>
+                          <ReadMoreText
+                            children={
+                              <Typography
+                                //align="justify"
+                                //paragraph="true"
+                                className={classes.textContent}
+                              >
+                                {row.task}
+                              </Typography>
+                            }
+                          />
+                        </Box>
+                      </TableCell>
+                      <TableCell align="center">
+                        <Typography className={classes.textContent}>
+                          {row.difficulty}
+                        </Typography>
+                      </TableCell>
+                      <TableCell align="center">
+                        <Typography className={classes.textContent}>
+                          {`${row.time}%`}
+                        </Typography>
+                      </TableCell>
+                      <TableCell align="center">
+                        <Typography className={classes.textContent}>
+                          {`${row.result}%`}
+                        </Typography>
+                      </TableCell>
+                      <TableCell align="center">
+                        <Typography className={classes.textContent}>
+                          {`${row.total}%`}
+                        </Typography>
+                      </TableCell>
                     </TableRow>
                   );
                 })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 10) * emptyRows }}>
+              {/* {emptyRows > 0 && (
+                <TableRow style={{ height: (dense ? 33 : 55) * emptyRows }}>
                   <TableCell colSpan={6} />
                 </TableRow>
-              )}
+              )} */}
             </TableBody>
           </Table>
         </TableContainer>
@@ -405,10 +396,10 @@ export default function EnhancedTable() {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel
+      {/* <FormControlLabel
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
-      />
+      /> */}
     </div>
   );
 }

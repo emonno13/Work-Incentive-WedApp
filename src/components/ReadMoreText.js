@@ -44,20 +44,39 @@ class ReadMore extends Component {
           ellipsis={
             <Box component="span">
               ...
-              <Box component="a" href="#" onClick={this.toggleLines}>
-                <Typography style={{ fontSize: 15 }}>{more}</Typography>
+              <Box
+                component="a"
+                href="#"
+                onClick={this.toggleLines}
+                style={{ textDecoration: "none" }}
+              >
+                <Typography
+                  style={{
+                    fontSize: 15,
+                    color: "#25828b"
+                  }}
+                >
+                  {more}
+                </Typography>
               </Box>
             </Box>
           }
           onTruncate={this.handleTruncate}
         >
-          <Typography align="justify">{children}</Typography>
+          <Typography>{children}</Typography>
         </Truncate>
         {!truncated && expanded && (
           <Box component="span">
             {" "}
-            <Box component="a" href="#" onClick={this.toggleLines}>
-              <Typography style={{ fontSize: 15 }}>{less}</Typography>
+            <Box
+              component="a"
+              href="#"
+              style={{ textDecoration: "none" }}
+              onClick={this.toggleLines}
+            >
+              <Typography style={{ fontSize: 15, color: "#25828b" }}>
+                {less}
+              </Typography>
             </Box>
           </Box>
         )}
