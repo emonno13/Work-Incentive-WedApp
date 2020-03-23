@@ -16,13 +16,13 @@ import {
   useTheme
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 import useStyles, { StyledBadge } from "./style";
-import ITPage from "../pages/ITPage/index";
-import SalePage from "../pages/SalePage/index";
-import ProjectPage from "../pages/ProjectPage/index";
-import ProjectDetail from "../pages/ProjectPage/ProjectDetail/ProjectDetail";
-import MarketingPage from "../pages/MarketingPage/index";
+import ITPage from "../pages/IT/index";
+import SalePage from "../pages/Sale/index";
+import ProjectPage from "../pages/Project/index";
+import ProjectDetail from "../pages/Project/ProjectDetail/ProjectDetail";
+import MarketingPage from "../pages/Marketing/index";
 //import ProjectAll from "../pages/ProjectPage/ProjectAll/ProjectAll";
 
 const MainTab = (props) => {
@@ -30,6 +30,7 @@ const MainTab = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  let { url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -51,7 +52,7 @@ const MainTab = (props) => {
             key={text}
             className={classes.nonActiveNav}
             component={NavLink}
-            to={"/" + text}
+            to={`${url}/${text}`}
             activeStyle={{
               backgroundColor: "rgba(0, 0, 0, 0.04)",
               color: "white",
@@ -78,7 +79,7 @@ const MainTab = (props) => {
             key={text}
             className={classes.nonActiveNav}
             component={NavLink}
-            to={"/" + text}
+            to={`${url}/${text}`}
             activeStyle={{
               backgroundColor: "rgba(0, 0, 0, 0.04)",
               color: "red",
@@ -163,11 +164,11 @@ const MainTab = (props) => {
         <Box component="div" className={classes.toolbar} />
 
         <Switch onClick={handleDrawerToggle}>
-          <Route exact path="/Project" component={ProjectPage} />
-          <Route path="/Project/:id" component={ProjectDetail} />
-          <Route path="/IT" component={ITPage} />
-          <Route path="/Sales" component={SalePage} />
-          <Route path="/Marketing" component={MarketingPage} />
+          <Route path={`${url}/Project`} component={ProjectPage} />
+          {/* <Route path={`${url}/Project/:id`} component={ProjectDetail} /> */}
+          <Route path={`${url}/IT`} component={ITPage} />
+          <Route path={`${url}/Sales`} component={SalePage} />
+          <Route path={`${url}/Marketing`} component={MarketingPage} />
         </Switch>
       </Box>
     </Box>

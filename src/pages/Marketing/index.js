@@ -1,17 +1,10 @@
-import React from "react";
-import {
-  Typography,
-  Box,
-  Grid,
-  Avatar,
-  Toolbar,
-  InputBase
-} from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { Typography, Box, Grid, Avatar, InputBase } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import MemberTable from "./components/MemberTable";
 import useStyles from "./style";
 
-const data = {
+const dataApi = {
   manager: [
     {
       avatar:
@@ -55,6 +48,17 @@ const data = {
 
 const MarketingPage = (props) => {
   const classes = useStyles(props);
+  const [search, setSearch] = useState("");
+  const [data] = useState(dataApi);
+  useEffect(() => {
+    console.log(search);
+  });
+
+  const handleSearch = (event) => {
+    const { value } = event.target;
+    setSearch(value);
+  };
+
   return (
     <Box component="div" className={classes.root}>
       <Typography className={classes.title}> MARKETING DEPARTMENT </Typography>
@@ -63,7 +67,7 @@ const MarketingPage = (props) => {
       </Typography>
       {/*MANAGERS ROW */}
       <Grid container alignItems="flex-start">
-        <Grid container xs={12} sm={8}>
+        <Grid container item xs={12} sm={8}>
           {data.manager.map((item) => (
             <Box component="div" className={classes.rootMember}>
               <Grid item xs={2}>
@@ -109,6 +113,8 @@ const MarketingPage = (props) => {
               </Box>
               <InputBase
                 placeholder="Search…"
+                //value={search}
+                onChange={handleSearch}
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput

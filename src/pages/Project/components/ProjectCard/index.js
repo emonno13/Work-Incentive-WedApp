@@ -26,7 +26,10 @@ export default function ProjectCard(props) {
     >
       <Grid item md={4} sm={6} xs={12}>
         <Card className={classes.root}>
-          <CardActionArea component={NavLink} to={`/Project/${props.title}`}>
+          <CardActionArea
+            component={NavLink}
+            to={`/Main/Project/${props.title}`}
+          >
             <CardMedia
               className={classes.media}
               image={props.image}

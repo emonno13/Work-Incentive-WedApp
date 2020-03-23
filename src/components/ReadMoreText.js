@@ -33,12 +33,12 @@ class ReadMore extends Component {
   }
 
   render() {
-    const { children, more, less, lines } = this.props;
+    const { children, more, less, lines, styles, className } = this.props;
 
     const { expanded, truncated } = this.state;
-
+    console.log(styles);
     return (
-      <Box component="div">
+      <Box component="div" className={className}>
         <Truncate
           lines={!expanded && lines}
           ellipsis={
@@ -63,7 +63,7 @@ class ReadMore extends Component {
           }
           onTruncate={this.handleTruncate}
         >
-          <Typography>{children}</Typography>
+          <Typography className={className}>{children}</Typography>
         </Truncate>
         {!truncated && expanded && (
           <Box component="span">
@@ -95,7 +95,9 @@ ReadMore.propTypes = {
   children: PropTypes.node.isRequired,
   lines: PropTypes.number,
   less: PropTypes.string,
-  more: PropTypes.string
+  more: PropTypes.string,
+  styles: PropTypes.any,
+  className: PropTypes.any
 };
 
 export default ReadMore;

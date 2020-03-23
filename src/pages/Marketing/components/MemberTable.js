@@ -108,7 +108,7 @@ const EnhancedTableHead = (props) => {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            stickyHeader
+            //stickyHeader
             //align={headCell.numeric ? "right" : "left"}
             align={headCell.numeric ? "left" : "center"}
             padding={headCell.disablePadding ? "none" : "default"}
@@ -275,17 +275,15 @@ export default function EnhancedTable(props) {
   //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <div className={classes.root}>
+    <Box component="div" className={classes.root}>
       <Paper className={classes.paper}>
         {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Table
-            stickyHeader
-            aria-label="sticky table"
-            // className={classes.table}
-            // aria-labelledby="tableTitle"
-            // size={dense ? "small" : "medium"}
-            //aria-label="enhanced table"
+            className={classes.table}
+            aria-labelledby="tableTitle"
+            //size={dense ? "small" : "medium"}
+            aria-label="enhanced table"
           >
             <EnhancedTableHead
               classes={classes}
@@ -341,19 +339,10 @@ export default function EnhancedTable(props) {
                         </Grid>
                       </TableCell>
                       <TableCell align="left" width={300}>
-                        <Box>
-                          <ReadMoreText
-                            children={
-                              <Typography
-                                //align="justify"
-                                //paragraph="true"
-                                className={classes.textContent}
-                              >
-                                {row.task}
-                              </Typography>
-                            }
-                          />
-                        </Box>
+                        <ReadMoreText
+                          children={row.task}
+                          className={classes.textContent}
+                        />
                       </TableCell>
                       <TableCell align="center">
                         <Typography className={classes.textContent}>
@@ -388,7 +377,7 @@ export default function EnhancedTable(props) {
         </TableContainer>
         <TablePagination
           rowsPerPageOptions={[5, 10, 20]}
-          component="div"
+          component={"div"}
           count={rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
@@ -400,6 +389,6 @@ export default function EnhancedTable(props) {
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
       /> */}
-    </div>
+    </Box>
   );
 }
