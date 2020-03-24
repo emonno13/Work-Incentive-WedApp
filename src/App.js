@@ -1,10 +1,12 @@
 import React from "react";
 import { Box } from "@material-ui/core";
-import MainTab from "./parts/MainTab";
-import HomePage from "./pages/Home/index";
-import ProjectPage from "./pages/Project/index";
+import Main from "./pages/Main/index";
+import Home from "./pages/Auth/Home/index";
+import Login from "./pages/Auth/SignIn/index";
+//import Auth from "./pages/Auth/index";
 import { Switch, Route } from "react-router-dom";
-
+// import { useDispatch, useSelector } from "react-redux";
+// import { isLogin } from "./redux/actions/index";
 //import CreateProjectForm from "../src/components/ProjectForm/FormikForm";
 //import { Formik } from "formik";
 
@@ -12,8 +14,9 @@ const App = () => {
   return (
     <Box component="div">
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/Main" component={MainTab} />
+        <Route path="/" exact component={Home} />
+        <Route path="/Login" component={Login} />
+        <Route path="/Main" component={Main} />
       </Switch>
     </Box>
   );

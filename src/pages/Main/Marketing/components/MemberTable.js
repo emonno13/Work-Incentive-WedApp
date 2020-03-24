@@ -17,7 +17,7 @@ import {
   Grid
 } from "@material-ui/core";
 
-import ReadMoreText from "../../../components/ReadMoreText";
+import ShowMoreText from "../../../../components/ShowMoreText/index";
 // const createData = (
 //   id,
 //   avatar,
@@ -339,7 +339,7 @@ export default function EnhancedTable(props) {
                         </Grid>
                       </TableCell>
                       <TableCell align="left" width={300}>
-                        <ReadMoreText
+                        <ShowMoreText
                           children={row.task}
                           className={classes.textContent}
                         />

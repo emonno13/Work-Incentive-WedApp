@@ -18,7 +18,7 @@ import { useDispatch } from "react-redux";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import EventNoteIcon from "@material-ui/icons/EventNote";
-import { openProjectForm } from "../../../../redux/actions/index";
+import { openProjectForm } from "../../../../../redux/actions/index";
 import {
   KeyboardDateTimePicker,
   MuiPickersUtilsProvider
@@ -31,7 +31,7 @@ import useStyles, { CssAutocomplete, CssTextField } from "./styleFormikForm";
 import uuid from "uuid/v1";
 import { useDropzone } from "react-dropzone";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import bytesToSize from "../../../../utils/bytesToSize";
+import bytesToSize from "../../../../../utils/bytesToSize";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" color="primary" />;

@@ -13,16 +13,19 @@ import {
   Typography,
   Box,
   Avatar,
+  Collapse,
   useTheme
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 import useStyles, { StyledBadge } from "./style";
-import ITPage from "../pages/IT/index";
-import SalePage from "../pages/Sale/index";
-import ProjectPage from "../pages/Project/index";
-import ProjectDetail from "../pages/Project/ProjectDetail/ProjectDetail";
-import MarketingPage from "../pages/Marketing/index";
+import ITPage from "./IT/index";
+import SalePage from "./Sale/index";
+import ProjectPage from "./Project/index";
+//import ProjectDetail from "../pages/Project/ProjectDetail/ProjectDetail";
+import MarketingPage from "./Marketing/index";
 //import ProjectAll from "../pages/ProjectPage/ProjectAll/ProjectAll";
 
 const MainTab = (props) => {
@@ -30,8 +33,12 @@ const MainTab = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  let { url } = useRouteMatch();
+  const [openList, setOpenList] = React.useState(false);
 
+  let { url } = useRouteMatch();
+  const handleClickTab = () => {
+    setOpenList(!openList);
+  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -41,32 +48,71 @@ const MainTab = (props) => {
       <Box component="div" className={classes.logoArea}>
         <Typography className={classes.logoText}>Logo</Typography>
       </Box>
+
       <List>
         <Typography type="body3" className={classes.topSectionText}>
           Result
         </Typography>
+        {/*ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd*/}
+        <ListItem
+          button
+          key={"Project"}
+          className={classes.nonActiveNav}
+          component={NavLink}
+          to={`${url}/${"Project"}`}
+          activeStyle={{
+            backgroundColor: "rgba(0, 0, 0, 0.04)",
+            color: "white",
+            fontSize: 20
+          }}
+          onClick={() => setMobileOpen(false)}
+        >
+          <Box component="div" className={classes.nonActiveText}>
+            {"Project"}
+          </Box>
+        </ListItem>
 
-        {["Project", "IT", "Sales", "Marketing"].map((text) => (
-          <ListItem
-            button
-            key={text}
-            className={classes.nonActiveNav}
-            component={NavLink}
-            to={`${url}/${text}`}
-            activeStyle={{
-              backgroundColor: "rgba(0, 0, 0, 0.04)",
-              color: "white",
-              fontSize: 20
-            }}
-            onClick={() => setMobileOpen(false)}
-          >
-            <Box component="div" className={classes.nonActiveText}>
-              {text}
-            </Box>
-          </ListItem>
-        ))}
+        {/*ddddddddddddddddddddddddddddd DEPARTMENT dddddddddddddddddddddddddddddddddddddd*/}
+        <ListItem
+          button
+          key={"Department"}
+          className={classes.nonActiveNav}
+          activeStyle={{
+            backgroundColor: "rgba(0, 0, 0, 0.04)",
+            color: "white",
+            fontSize: 20
+          }}
+          onClick={handleClickTab}
+          style={{ justifyContent: "space-between" }}
+        >
+          <Box component="div" className={classes.nonActiveText}>
+            {"Department"}
+          </Box>
+          {openList ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={openList} timeout="auto" unmountOnExit>
+          {["IT", "Sales", "Marketing"].map((text) => (
+            <ListItem
+              button
+              key={text}
+              className={classes.nonActiveNav}
+              component={NavLink}
+              to={`${url}/${text}`}
+              activeStyle={{
+                backgroundColor: "rgba(0, 0, 0, 0.04)",
+                color: "white",
+                fontSize: 20
+              }}
+              onClick={() => setMobileOpen(false)}
+            >
+              <Box component="div" className={classes.nonActiveText}>
+                {text}
+              </Box>
+            </ListItem>
+          ))}
+        </Collapse>
       </List>
-
+      {/*ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd*/}
       <Divider />
 
       <List>
@@ -128,7 +174,11 @@ const MainTab = (props) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <Box
+        component="nav"
+        className={classes.drawer}
+        aria-label="mailbox folders"
+      >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -158,14 +208,13 @@ const MainTab = (props) => {
             {drawer}
           </Drawer>
         </Hidden>
-      </nav>
+      </Box>
 
       <Box component="main" className={classes.content} overflow="hidden">
         <Box component="div" className={classes.toolbar} />
 
         <Switch onClick={handleDrawerToggle}>
           <Route path={`${url}/Project`} component={ProjectPage} />
-          {/* <Route path={`${url}/Project/:id`} component={ProjectDetail} /> */}
           <Route path={`${url}/IT`} component={ITPage} />
           <Route path={`${url}/Sales`} component={SalePage} />
           <Route path={`${url}/Marketing`} component={MarketingPage} />
@@ -194,3 +243,4 @@ export default MainTab;
 //             {matches && (<h1>Big Screen fdsf fdsfsdf fdsfsd fsdfsd fsdfsdf fsdfdsf fdsfsd fsdfsd fsdfsdf fsdfsd</h1>)}
 //             {!matches && (<h3>Small Screen fdsf fdsfsdf fdsfsd fsdfsd fsdfsdf fsdfdsf fdsfsd fsdfsd fsdfsdf fsdfsd</h3>)}
 //           </div>
+//    {/* <Route path={`${url}/Project/:id`} component={ProjectDetail} /> */}

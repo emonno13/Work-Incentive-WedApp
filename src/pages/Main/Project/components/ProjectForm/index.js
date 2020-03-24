@@ -1,5 +1,5 @@
 import React from "react";
-import { openProjectForm } from "../../../../redux/actions/index";
+import { openProjectForm } from "../../../../../redux/actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import { Dialog } from "@material-ui/core";
 import CreateProjectForm from "./FormikForm";

@@ -25,7 +25,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { NavLink } from "react-router-dom";
 import useStyles from "./style";
 import uuid from "uuid/v1";
-import ReadMoreText from "../../../components/ReadMoreText";
+import ShowMoreText from "../../../../components/ShowMoreText/index";
 
 const data = {
   time: "15 Mar 2018 - present",
@@ -106,7 +106,7 @@ const ProjectDetail = ({ match }) => {
       <Grid container className={classes.root}>
         <Grid container>
           <Grid item xs={"auto"}>
-            <IconButton component={NavLink} to={`/Project`}>
+            <IconButton component={NavLink} to={`/Main/Project`}>
               <ArrowBackIcon className={classes.backButton} />
             </IconButton>
           </Grid>
@@ -150,7 +150,7 @@ const ProjectDetail = ({ match }) => {
                     <EditIcon className={classes.iconEditButton} />
                   </IconButton>
                 </Box>
-                <ReadMoreText
+                <ShowMoreText
                   children={
                     <Typography className={classes.textDescription}>
                       {data.projectDescription}

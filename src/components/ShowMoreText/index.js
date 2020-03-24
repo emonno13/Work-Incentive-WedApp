@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Truncate from "react-truncate";
 import { Typography, Box } from "@material-ui/core";
 
-class ReadMore extends Component {
+class ShowMoreText extends Component {
   constructor(...args) {
     super(...args);
 
@@ -85,13 +85,13 @@ class ReadMore extends Component {
   }
 }
 
-ReadMore.defaultProps = {
+ShowMoreText.defaultProps = {
   lines: 4,
   more: "Read more",
   less: "Show less"
 };
 
-ReadMore.propTypes = {
+ShowMoreText.propTypes = {
   children: PropTypes.node.isRequired,
   lines: PropTypes.number,
   less: PropTypes.string,
@@ -100,4 +100,4 @@ ReadMore.propTypes = {
   className: PropTypes.any
 };
 
-export default ReadMore;
+export default ShowMoreText;
