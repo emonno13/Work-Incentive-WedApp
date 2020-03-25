@@ -84,7 +84,7 @@ const CreateProjectForm = () => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: handleDrop
   });
-  console.log(files);
+  //console.log(files);
   return (
     <Grid container justify="center" alignContent="center">
       <Grid item xs={12} xl={12} sm={12} md={12} wrap>

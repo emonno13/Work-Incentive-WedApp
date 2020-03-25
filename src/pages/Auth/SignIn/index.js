@@ -8,7 +8,7 @@ const SignIn = () => {
       <Typography variant="h3" component="h1">
         Please login
       </Typography>
-      <Typography variant="h3" component={NavLink} to={"/Main"}>
+      <Typography variant="h3" component={NavLink} to={"/Main/Project"}>
         Go to main
       </Typography>
     </div>

@@ -33,10 +33,10 @@ class ShowMoreText extends Component {
   }
 
   render() {
-    const { children, more, less, lines, styles, className } = this.props;
+    const { children, more, less, lines, className } = this.props;
 
     const { expanded, truncated } = this.state;
-    console.log(styles);
+    //console.log(styles);
     return (
       <Box component="div" className={className}>
         <Truncate

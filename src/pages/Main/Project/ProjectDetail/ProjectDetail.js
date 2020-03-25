@@ -25,6 +25,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { NavLink } from "react-router-dom";
 import useStyles from "./style";
 import uuid from "uuid/v1";
+import { useParams, useHistory } from "react-router-dom";
 import ShowMoreText from "../../../../components/ShowMoreText/index";
 
 const data = {
@@ -84,12 +85,16 @@ const data = {
     }
   ]
 };
-const ProjectDetail = ({ match }) => {
-  const classes = useStyles(match);
+const ProjectDetail = () => {
+  let { id } = useParams();
+  let history = useHistory();
+  const classes = useStyles(id);
+  //console.log(id);
+  //console.log(`${match.params.id} and ${id}`);
   //const [value, setValue] = React.useState(2);
 
   useEffect(() => {
-    console.log(data);
+    //console.log(data);
   }, []);
   return (
     <Box component="div">
@@ -106,13 +111,17 @@ const ProjectDetail = ({ match }) => {
       <Grid container className={classes.root}>
         <Grid container>
           <Grid item xs={"auto"}>
-            <IconButton component={NavLink} to={`/Main/Project`}>
+            <IconButton
+              onClick={() => history.goBack()}
+              // component={NavLink}
+              // to={`/Main/Project`}
+            >
               <ArrowBackIcon className={classes.backButton} />
             </IconButton>
           </Grid>
           <Grid item xs={9}>
             <Typography variant="h4" component="h1">
-              {`${match.params.id}`}
+              {`${id}`}
             </Typography>
           </Grid>
           <Grid item xs={"true"}>
@@ -126,6 +135,7 @@ const ProjectDetail = ({ match }) => {
               <Button
                 variant="outlined"
                 color="#25828b"
+                onClick={() => alert("edit")}
                 startIcon={<EditIcon className={classes.iconEditButton} />}
               >
                 <Typography className={classes.textEditButton}>Edit</Typography>
@@ -229,7 +239,16 @@ const ProjectDetail = ({ match }) => {
                   <Typography className={classes.headerTitle}>
                     {`TASKS (${data.task.length})`}
                   </Typography>
-                  <Button className={classes.viewAll}>View all</Button>
+                  <Button
+                    className={classes.viewAll}
+                    // onClick={() =>
+                    //   alert(`/Main/Project/${match.params.id}/AllTask`)
+                    // }
+                    component={NavLink}
+                    to={`/Main/Project/${id}/AllTask`}
+                  >
+                    View all
+                  </Button>
                 </Box>
                 {data.task.map((item) => (
                   <Box component="div" className={classes.rootTaskItem}>

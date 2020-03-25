@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 export default function ProjectCard(props) {
   const classes = useStyles();
   const [checked, setChecked] = React.useState(false);
-  const { setOpenProject } = props;
+  //const { setOpenProject } = props;
   useEffect(() => {
     setChecked(true);
   }, []);

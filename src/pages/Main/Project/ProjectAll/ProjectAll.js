@@ -11,13 +11,13 @@ const projects = [
   {
     image:
       "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-    title: "Vinhomes project is just a outstanding performance in USA",
+    title: "Vinhomes project",
     month: "15 Mar 2018 - present"
   },
   {
     image:
       "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-    title: "Vinhomes project",
+    title: "Vinhomes project is just a outstanding performance in USA",
     month: "15 Mar 2018 - present"
   },
   {
@@ -67,7 +67,7 @@ const ProjectAll = (props) => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => {
-    console.log(open);
+    //console.log(open);
     return (
       <Box component="div" className={classes.root}>
         <ProjectForm />

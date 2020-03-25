@@ -24,8 +24,8 @@ import useStyles, { StyledBadge } from "./style";
 import ITPage from "./IT/index";
 import SalePage from "./Sale/index";
 import ProjectPage from "./Project/index";
-//import ProjectDetail from "../pages/Project/ProjectDetail/ProjectDetail";
 import MarketingPage from "./Marketing/index";
+
 //import ProjectAll from "../pages/ProjectPage/ProjectAll/ProjectAll";
 
 const MainTab = (props) => {
