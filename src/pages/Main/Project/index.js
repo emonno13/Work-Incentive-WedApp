@@ -5,7 +5,7 @@ import ProjectDetail from "./ProjectDetail/index";
 //import ProjectDetail from "./ProjectDetail/ProjectDetail";
 //import ProjectDetailTask from "./ProjectDetailTask/index";
 
-const ProjectPage = (props) => {
+const ProjectPage = () => {
   let { path } = useRouteMatch();
   //console.log(url);
   //console.log(`${path}/:id`);
@@ -20,6 +20,6 @@ const ProjectPage = (props) => {
 };
 
 export default ProjectPage;
-
+//    exact để trỏ đúng đường dẫn thằng cha  thì mấy thằng con mới nhận được
 //    to={`/Main/Project/${props.title}`}  : page 1 to 2  ở 2 nhận param tên id ( title)
 //    to={`/Main/Project/${id}/AllTask`}  : page 2 tỏ 3

@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   root: {
     justifyItems: "center",
-    padding: theme.spacing(2)
+    padding: theme.spacing(5)
   },
   title: {
     fontSize: 30,

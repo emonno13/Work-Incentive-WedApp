@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Grid, Typography, CardActionArea, Box } from "@material-ui/core";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import { openProjectForm } from "../../../../redux/actions/index";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import ProjectCard from "../components/ProjectCard/index";
 import ProjectForm from "../components/ProjectForm/index";
 import useStyles from "./style";
@@ -63,8 +63,7 @@ const ProjectAll = (props) => {
   const classes = useStyles(props);
 
   const dispatch = useDispatch();
-  const open = useSelector((state) => state.reduce.createProjectForm);
-
+  //const open = useSelector((state) => state.reduce.createProjectForm);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => {
     //console.log(open);

@@ -1,14 +1,17 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 import { useParams } from "react-router-dom";
+import useStyles from "./style";
+
 const SalePage = () => {
-  let { topicId } = useParams();
+  const classes = useStyles();
+  let { id } = useParams();
   return (
-    <div>
+    <Box component="div" className={classes.root}>
       <Typography variant="h3" component="h1">
-        Sales Page
+        {`Sale Page ${id}`}
       </Typography>
-    </div>
+    </Box>
   );
 };
 

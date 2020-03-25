@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ProjectDetail from "./ProjectDetail";
-import ProjectDetailTask from "../ProjectDetailTask/index";
+import ProjectDetailTask from "../ProjectDetailTask";
 
 const ProjectIn = () => {
   let { path } = useRouteMatch();

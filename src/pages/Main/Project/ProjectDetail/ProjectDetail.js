@@ -134,7 +134,7 @@ const ProjectDetail = () => {
             >
               <Button
                 variant="outlined"
-                color="#25828b"
+                style={{ color: "#25828b" }}
                 onClick={() => alert("edit")}
                 startIcon={<EditIcon className={classes.iconEditButton} />}
               >
