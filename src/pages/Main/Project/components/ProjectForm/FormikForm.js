@@ -65,7 +65,7 @@ const members = [
 
 const CreateProjectForm = () => {
   const classes = useStyles();
-  const [setMember] = useState([]); //const [member, setMember] = useState([]);
+  const [member, setMember] = useState([]); //const [member, setMember] = useState([]);
   const [startDate, handleStartDateChange] = useState(new Date());
   const [endDate, handleEndDateChange] = useState(new Date());
   //console.log(selectedDate.toISOString());
