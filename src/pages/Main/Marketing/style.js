@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     marginTop: 10
   },
-  ///SEARCH BUTTON
+  //////////////////////////////////////////////////////////////////////////////////SEARCH BUTTON
   groupSearch: {
     display: "flex",
     justifyContent: "flex-end",
@@ -77,4 +77,5 @@ export default makeStyles((theme) => ({
       }
     }
   }
+  //////////////////////////////////////////////////////////////////////////////////////////
 }));
