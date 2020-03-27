@@ -1,4 +1,12 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import Rating from "@material-ui/lab/Rating";
+
+export const StyledRating = withStyles({
+  iconFilled: {
+    color: "#ff4757"
+  }
+})(Rating);
+
 export default makeStyles((theme) => ({
   background: {
     height: 0,

@@ -17,9 +17,7 @@ import {
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import EditIcon from "@material-ui/icons/Edit";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
 import AppleIcon from "@material-ui/icons/Apple";
-import Rating from "@material-ui/lab/Rating";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import ClearIcon from "@material-ui/icons/Clear";
 import { NavLink } from "react-router-dom";
@@ -27,6 +25,7 @@ import useStyles from "./style";
 import uuid from "uuid/v1";
 import { useParams, useHistory } from "react-router-dom";
 import ShowMoreText from "../../../../components/ShowMoreText/index";
+import { StyledRating } from "./style";
 
 const data = {
   time: "15 Mar 2018 - present",
@@ -42,21 +41,21 @@ const data = {
     },
     {
       taskTile: "[Content] Đăng ký tại Home Guest và cho Android",
-      process: 2,
+      process: 4,
       dayLeft: 7,
       avatar:
         "https://kenh14cdn.com/thumb_w/640/2019/4/25/hai9398-15561851877211598194299-crop-15561853627471592918271.jpg"
     },
     {
       taskTile: "[Content] Đăng ký tại Home Guest và cho Android",
-      process: 2,
+      process: 1,
       dayLeft: 7,
       avatar:
         "https://kenh14cdn.com/thumb_w/640/2019/4/25/hai9398-15561851877211598194299-crop-15561853627471592918271.jpg"
     },
     {
       taskTile: "[Content] Đăng ký tại Home Guest và cho Android",
-      process: 2,
+      process: 5,
       dayLeft: 7,
       avatar:
         "https://kenh14cdn.com/thumb_w/640/2019/4/25/hai9398-15561851877211598194299-crop-15561853627471592918271.jpg"
@@ -265,7 +264,7 @@ const ProjectDetail = () => {
                           justifyContent: "space-between"
                         }}
                       >
-                        <Rating
+                        <StyledRating
                           name="read-only"
                           value={item.process}
                           readOnly

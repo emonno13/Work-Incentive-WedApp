@@ -20,10 +20,10 @@ const dataApi = {
       task: `[Content] Project A1`,
       progress: 2,
       duoDate: "14 Feb 2020",
-      daysLate: "( 2 days late )",
+      daysLate: "(12 days late)",
       avatar:
         "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
-      name: "Michael Brown",
+      name: "Chris Evan Hall ",
       result: "Good"
     },
     {
@@ -35,6 +35,28 @@ const dataApi = {
       avatar:
         "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
       name: "Michael Brown",
+      result: "Excellent"
+    },
+    {
+      status: "Pause",
+      task: `[Content] Tìm kiếm khách hàng tiềm năng`,
+      progress: 2,
+      duoDate: "15 Feb 2020",
+      daysLate: "",
+      avatar:
+        "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
+      name: "Kuana",
+      result: "Excellent"
+    },
+    {
+      status: "Pause",
+      task: `[Content] Tìm kiếm khách hàng tiềm năng`,
+      progress: 2,
+      duoDate: "15 Feb 2020",
+      daysLate: "",
+      avatar:
+        "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
+      name: "Kuana",
       result: "Excellent"
     }
   ]

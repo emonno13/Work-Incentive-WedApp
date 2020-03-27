@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {
   Table,
   TableBody,
@@ -18,6 +18,12 @@ import {
 } from "@material-ui/core";
 import AppleIcon from "@material-ui/icons/Apple";
 import Rating from "@material-ui/lab/Rating";
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: "#ff4757"
+  }
+})(Rating);
 
 const descendingComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
@@ -131,6 +137,11 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 750
+  },
+  textTask: {
+    color: "#25252a",
+    lineHeight: 1.63,
+    fontWeight: 600
   },
   textName: {
     color: "#25828b",
@@ -297,31 +308,26 @@ export default function EnhancedTable(props) {
                         )}
                       </TableCell>
                       {/**/}
-                      <TableCell align="left" width={300}>
-                        <Typography>{row.task}</Typography>
+                      <TableCell align="left" width={250}>
+                        <Typography className={classes.textTask}>
+                          {row.task}
+                        </Typography>
                       </TableCell>
                       {/**/}
                       <TableCell align="center">
-                        <Rating
+                        <StyledRating
                           name="read-only"
                           value={row.progress}
                           readOnly
                           // onChange={(event, newValue) => {
                           //   setValue(newValue);
                           // }}
-                          icon={
-                            <AppleIcon fontSize="inherit" color="#ff4757" />
-                          }
+                          icon={<AppleIcon fontSize="inherit" />}
                         />
                       </TableCell>
                       {/**/}
-                      <TableCell align="center">
-                        <Box
-                          component="div"
-                          display="flex"
-                          direction="row"
-                          justify="space-around"
-                        >
+                      <TableCell align="left">
+                        <Box component="div" display="flex" direction="row">
                           <Typography className={classes.textContent}>
                             {row.duoDate}
                           </Typography>
@@ -349,7 +355,7 @@ export default function EnhancedTable(props) {
                       </TableCell>
                       {/**/}
 
-                      <TableCell align="center">
+                      <TableCell align="left">
                         <Typography className={classes.textContent}>
                           {`${row.result}`}
                         </Typography>
