@@ -16,9 +16,9 @@ import TaskTable from "./TaskTable";
 const dataApi = {
   tasks: [
     {
-      status: "Done",
+      status: "Pause",
       task: `[Content] Project A1`,
-      progress: 5,
+      progress: 2,
       duoDate: "14 Feb 2020",
       daysLate: "( 2 days late )",
       avatar:
@@ -27,7 +27,7 @@ const dataApi = {
       result: "Good"
     },
     {
-      status: "Doing",
+      status: "Done",
       task: `[Content] "Đăng ký" tại Home Guest và error message tại đăng kí tiện ích`,
       progress: 5,
       duoDate: "14 Feb 2020",
@@ -35,32 +35,7 @@ const dataApi = {
       avatar:
         "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
       name: "Michael Brown",
-      result: "Good"
-    }
-  ],
-  members: [
-    {
-      id: 1,
-      avatar:
-        "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
-      name: "Khanh",
-      task:
-        "In Vinhomes residencial projects, cultural and sports activities are widely made and developed with exciting atmosphere, contributing to the creation of a civilized and class community, creating relationships among family members as well as building relationships in the neighborhood. Show less",
-      difficulty: "Medium",
-      time: 4,
-      result: 2,
-      total: 5
-    },
-    {
-      id: 2,
-      avatar:
-        "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
-      name: "Khanh",
-      task: "In Vinhomes residencial projectss",
-      difficulty: "Medium",
-      time: 4,
-      result: 2,
-      total: 5
+      result: "Excellent"
     }
   ]
 };

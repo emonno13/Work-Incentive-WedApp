@@ -16,6 +16,8 @@ import {
   Avatar,
   Grid
 } from "@material-ui/core";
+import AppleIcon from "@material-ui/icons/Apple";
+import Rating from "@material-ui/lab/Rating";
 
 const descendingComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
@@ -248,11 +250,51 @@ export default function EnhancedTable(props) {
                         id={labelId}
                         scope="row"
                         padding="none"
+                        alignItems="left"
                       >
                         {/**/}
-                        <Typography className={classes.textContent}>
-                          {row.status}
-                        </Typography>
+                        {row.status === "Doing" && (
+                          <Typography
+                            align="center"
+                            style={{
+                              background: "#25828b",
+                              borderRadius: 23,
+                              padding: 2,
+                              color: "#ffffff"
+                            }}
+                            //className={classes.textContent}
+                          >
+                            {row.status}
+                          </Typography>
+                        )}
+                        {row.status === "Done" && (
+                          <Typography
+                            align="center"
+                            style={{
+                              background: "#bfda8d",
+                              borderRadius: 23,
+                              padding: 2,
+                              color: "#ffffff"
+                            }}
+                            //className={classes.textContent}
+                          >
+                            {row.status}
+                          </Typography>
+                        )}
+                        {row.status === "Pause" && (
+                          <Typography
+                            align="center"
+                            style={{
+                              background: "#6f6f6f",
+                              borderRadius: 23,
+                              padding: 2,
+                              color: "#ffffff"
+                            }}
+                            //className={classes.textContent}
+                          >
+                            {row.status}
+                          </Typography>
+                        )}
                       </TableCell>
                       {/**/}
                       <TableCell align="left" width={300}>
@@ -260,9 +302,15 @@ export default function EnhancedTable(props) {
                       </TableCell>
                       {/**/}
                       <TableCell align="center">
-                        <Typography className={classes.textContent}>
-                          {row.progress}
-                        </Typography>
+                        <Rating
+                          name="read-only"
+                          value={row.progress}
+                          readOnly
+                          // onChange={(event, newValue) => {
+                          //   setValue(newValue);
+                          // }}
+                          icon={<AppleIcon fontSize="inherit" />}
+                        />
                       </TableCell>
                       {/**/}
                       <TableCell align="center">
@@ -298,6 +346,7 @@ export default function EnhancedTable(props) {
                         </Grid>
                       </TableCell>
                       {/**/}
+
                       <TableCell align="center">
                         <Typography className={classes.textContent}>
                           {`${row.result}`}

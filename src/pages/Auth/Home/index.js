@@ -4,7 +4,14 @@ import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div>
+    <div
+      styles={{
+        backgroundImage: `url(${"../../../img/Incentive.png"})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
       <Typography variant="h3" component="h1">
         Home Content
       </Typography>
