@@ -309,7 +309,9 @@ export default function EnhancedTable(props) {
                           // onChange={(event, newValue) => {
                           //   setValue(newValue);
                           // }}
-                          icon={<AppleIcon fontSize="inherit" />}
+                          icon={
+                            <AppleIcon fontSize="inherit" color="#ff4757" />
+                          }
                         />
                       </TableCell>
                       {/**/}
