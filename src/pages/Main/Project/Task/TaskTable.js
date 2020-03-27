@@ -18,7 +18,8 @@ import {
 } from "@material-ui/core";
 import AppleIcon from "@material-ui/icons/Apple";
 import Rating from "@material-ui/lab/Rating";
-
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const StyledRating = withStyles({
   iconFilled: {
     color: "#ff4757"
@@ -215,6 +216,8 @@ export default function EnhancedTable(props) {
 
   //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
   const rows = props.data;
+  let { id } = useParams();
+
   return (
     <Box component="div" className={classes.root}>
       <Paper className={classes.paper}>
@@ -247,7 +250,16 @@ export default function EnhancedTable(props) {
                       hover
                       //onClick={(event) => handleClick(event, row.name)}
                       //onClick={() => alert("hi")}
-                      onDoubleClick={() => alert("hi")}
+
+                      component={NavLink}
+                      style={{ textDecoration: "none" }}
+                      to={{
+                        pathname: `${id}/TaskDetail`,
+                        state: {
+                          taskName: `${row.task}`
+                        }
+                      }}
+                      //onDoubleClick={() => alert("hi")}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}

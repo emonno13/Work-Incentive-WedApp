@@ -5,11 +5,12 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Grow
+  Grow,
+  Grid
 } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
 import useStyles from "./style";
 import { NavLink } from "react-router-dom";
+
 export default function ProjectCard(props) {
   const classes = useStyles();
   const [checked, setChecked] = React.useState(false);

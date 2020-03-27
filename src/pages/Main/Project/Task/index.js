@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import ProjectDetail from "./ProjectDetail";
-import Task from "../Task";
+import Task from "./Task";
+import TaskDetail from "../TaskDetail";
 
 const ProjectIn = () => {
   let { path } = useRouteMatch();
@@ -9,8 +9,8 @@ const ProjectIn = () => {
   return (
     <div>
       <Switch>
-        <Route path={`${path}`} exact component={ProjectDetail} />
-        <Route path={`${path}/:id`} component={Task} />
+        <Route path={`${path}`} exact component={Task} />
+        <Route path={`${path}/:id`} component={TaskDetail} />
       </Switch>
     </div>
   );

@@ -35,7 +35,7 @@ const MainTab = (props) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [openList, setOpenList] = React.useState(false);
 
-  let { url } = useRouteMatch();
+  let { path } = useRouteMatch();
   const handleClickTab = () => {
     setOpenList(!openList);
   };
@@ -59,7 +59,7 @@ const MainTab = (props) => {
           key={"Project"}
           className={classes.nonActiveNav}
           component={NavLink}
-          to={`${url}/${"Project"}`}
+          to={`${path}/${"Project"}`}
           activeStyle={{
             backgroundColor: "rgba(0, 0, 0, 0.04)",
             color: "white",
@@ -97,7 +97,7 @@ const MainTab = (props) => {
               key={text}
               className={classes.nonActiveNav}
               component={NavLink}
-              to={`${url}/${text}`}
+              to={`${path}/${text}`}
               activeStyle={{
                 backgroundColor: "rgba(0, 0, 0, 0.04)",
                 color: "white",
@@ -125,7 +125,7 @@ const MainTab = (props) => {
             key={text}
             className={classes.nonActiveNav}
             component={NavLink}
-            to={`${url}/${text}`}
+            to={`${path}/${text}`}
             activeStyle={{
               backgroundColor: "rgba(0, 0, 0, 0.04)",
               color: "red",
@@ -214,10 +214,10 @@ const MainTab = (props) => {
         <Box component="div" className={classes.toolbar} />
 
         <Switch onClick={handleDrawerToggle}>
-          <Route path={`${url}/Project`} component={ProjectPage} />
-          <Route path={`${url}/IT`} component={ITPage} />
-          <Route path={`${url}/Sales`} component={SalePage} />
-          <Route path={`${url}/Marketing`} component={MarketingPage} />
+          <Route path={`${path}/Project`} component={ProjectPage} />
+          <Route path={`${path}/IT`} component={ITPage} />
+          <Route path={`${path}/Sales`} component={SalePage} />
+          <Route path={`${path}/Marketing`} component={MarketingPage} />
         </Switch>
       </Box>
     </Box>

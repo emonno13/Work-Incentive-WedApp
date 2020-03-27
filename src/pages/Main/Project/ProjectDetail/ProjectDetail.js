@@ -244,7 +244,7 @@ const ProjectDetail = () => {
                     //   alert(`/Main/Project/${match.params.id}/AllTask`)
                     // }
                     component={NavLink}
-                    to={`/Main/Project/${id}/AllTasks`}
+                    to={`${id}/AllTasks`}
                   >
                     View all
                   </Button>
