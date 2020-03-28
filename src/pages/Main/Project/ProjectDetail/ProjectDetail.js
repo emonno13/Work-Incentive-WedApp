@@ -106,7 +106,6 @@ const ProjectDetail = () => {
         />
       </Grid>
       {""}
-
       <Grid container className={classes.root}>
         <Grid container>
           <Grid item xs={"auto"}>

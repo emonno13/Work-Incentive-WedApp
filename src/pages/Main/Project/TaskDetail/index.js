@@ -8,7 +8,7 @@ const TaskDetail = (props) => {
   const classes = useStyles();
   const { id } = useParams();
   const history = useHistory();
-  const { taskName } = props.location.state;
+  const { taskName, statusName } = props.location.state;
   console.log(id);
   return (
     <Box className={classes.root}>
@@ -25,11 +25,34 @@ const TaskDetail = (props) => {
         </Grid>
         <Grid container item xs={12} lg={"true"} justify="flex-end">
           <Button variant="outlined" disabled className={classes.statusButton}>
-            <Typography className={classes.statusButonText}>Doing</Typography>
+            <Typography className={classes.statusButonText}>
+              {statusName}
+            </Typography>
           </Button>
         </Grid>
       </Grid>
-      <Grid></Grid>
+      <Grid container className={classes.groupBasicInfo}>
+        <Grid item xs={2}>
+          <Typography className={classes.titleBasicInfo}>REPORT TO</Typography>
+          <Typography>a</Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Typography className={classes.titleBasicInfo}>IN CHARGE</Typography>
+          <Typography>a</Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Typography className={classes.titleBasicInfo}>PROGRESS</Typography>
+          <Typography>a</Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Typography className={classes.titleBasicInfo}>START DATE</Typography>
+          <Typography>a</Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Typography className={classes.titleBasicInfo}>DUE DATE</Typography>
+          <Typography>a</Typography>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

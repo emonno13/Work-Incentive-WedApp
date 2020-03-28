@@ -5,6 +5,7 @@ import Home from "./pages/Auth/Home/index";
 import Login from "./pages/Auth/SignIn/index";
 //import Auth from "./pages/Auth/index";
 import { Switch, Route } from "react-router-dom";
+import "typeface-roboto";
 // import { useDispatch, useSelector } from "react-redux";
 // import { isLogin } from "./redux/actions/index";
 //import CreateProjectForm from "../src/components/ProjectForm/FormikForm";

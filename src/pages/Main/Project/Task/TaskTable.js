@@ -266,7 +266,8 @@ export default function EnhancedTable(props) {
                       to={{
                         pathname: `${id}/TaskDetail`,
                         state: {
-                          taskName: `${row.task}`
+                          taskName: `${row.task}`,
+                          statusName: `${row.status}`
                         }
                       }}
                       role="checkbox"
