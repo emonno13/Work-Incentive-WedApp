@@ -2,7 +2,7 @@ import { Rating } from "@material-ui/lab";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 export const StyledRating = withStyles({
   iconFilled: {
-    color: "#ff4757"
+    color: "#25828b"
   }
 })(Rating);
 export default makeStyles((theme) => ({
@@ -31,10 +31,7 @@ export default makeStyles((theme) => ({
   },
   groupBasicInfo: {
     marginLeft: 50,
-    marginTop: 15,
-    // [theme.breakpoints.up("lg")]: {
-    //   justifyContent: "space-between"
-    // },
+    marginTop: 10,
     [theme.breakpoints.down("lg")]: {
       alignItems: "space-between"
     }
@@ -49,7 +46,8 @@ export default makeStyles((theme) => ({
   titleBasicInfo: {
     color: "#25252a",
     fontSize: 16,
-    fontWeight: 600
+    fontWeight: 600,
+    marginBottom: 10
   },
   textName: {
     marginLeft: 5,
@@ -67,5 +65,63 @@ export default makeStyles((theme) => ({
     color: "#828296",
     lineHeight: 1.63,
     fontSize: 16
+  },
+  rootPaper: {
+    padding: theme.spacing(5),
+    marginLeft: 50,
+    marginTop: 50
+  },
+  headerPaper: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 5
+  },
+  headerTitle: {
+    fontWeight: 500,
+    fontSize: "1rem",
+    color: "#25252a"
+  },
+  iconEditButton: {
+    color: "#25828b"
+  },
+  textDescription: {
+    fontSize: 16,
+    lineHeight: 1.63,
+    color: "#828296"
+  },
+  rootFile: {
+    marginTop: 5
+  },
+  file: {
+    marginTop: 10,
+    background: "rgba(122, 122, 122, 0.08)"
+  },
+  fileIcon: {
+    color: "#25828b"
+  },
+  fileText: { color: "#25828b", overflow: "hidden", textOverflow: "ellipsis" },
+  fileIconDownLoad: { color: "#4a4a4a" },
+  fileIconRemove: { color: "#c4737d" },
+  commentAvatar: {
+    width: theme.spacing(5),
+    height: theme.spacing(5)
+  },
+  commentPostButton: {
+    background: "#25828b",
+    width: 50,
+    borderRadius: 8,
+    marginTop: 10,
+    padding: 5
+  },
+  commentPostButtonText: {
+    fontSize: 10,
+    color: "#ffffff",
+    textAlign: "center",
+    fontWeight: 500
+  },
+  groupWriteComment: {
+    marginTop: 20
   }
 }));

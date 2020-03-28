@@ -159,11 +159,8 @@ const ProjectDetail = () => {
                   </IconButton>
                 </Box>
                 <ShowMoreText
-                  children={
-                    <Typography className={classes.textDescription}>
-                      {data.projectDescription}
-                    </Typography>
-                  }
+                  children={<Typography>{data.projectDescription}</Typography>}
+                  className={classes.textDescription}
                 />
               </Paper>
             </Grid>
