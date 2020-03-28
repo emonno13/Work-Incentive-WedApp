@@ -16,6 +16,7 @@ import TaskTable from "./TaskTable";
 const dataApi = {
   tasks: [
     {
+      id: 1,
       status: "Doing",
       task: `[Content] Project A1`,
       progress: 2,
@@ -27,6 +28,7 @@ const dataApi = {
       result: "Good"
     },
     {
+      id: 2,
       status: "Done",
       task: `[Content] "Đăng ký" tại Home Guest và error message tại đăng kí tiện ích`,
       progress: 5,
@@ -38,6 +40,7 @@ const dataApi = {
       result: "Excellent"
     },
     {
+      id: 3,
       status: "Pause",
       task: `[Content] Tìm kiếm khách hàng tiềm năng`,
       progress: 2,
@@ -49,6 +52,7 @@ const dataApi = {
       result: "Excellent"
     },
     {
+      id: 4,
       status: "Pause",
       task: `[Content] Tìm kiếm khách hàng tiềm năng`,
       progress: 2,

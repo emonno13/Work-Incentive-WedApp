@@ -30,7 +30,7 @@ const dataApi = {
       difficulty: "Medium",
       time: 4,
       result: 2,
-      total: 5
+      total: 4
     },
     {
       id: 2,
@@ -42,6 +42,17 @@ const dataApi = {
       time: 4,
       result: 2,
       total: 5
+    },
+    {
+      id: 3,
+      avatar:
+        "https://allaboutkpop.net/wp-content/uploads/2019/08/1566532453-irene-1.jpg",
+      name: "Khanh",
+      task: "In Vinhomes residencial projectss",
+      difficulty: "Medium",
+      time: 1,
+      result: 1,
+      total: 2
     }
   ]
 };

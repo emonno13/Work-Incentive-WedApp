@@ -5,6 +5,7 @@ import store from "./redux/store/store";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
+import "typeface-roboto";
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

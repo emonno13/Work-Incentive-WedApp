@@ -25,11 +25,17 @@ export default makeStyles((theme) => ({
   },
   groupBasicInfo: {
     marginLeft: 50,
-    marginTop: 15
+    marginTop: 15,
+    [theme.breakpoints.up("lg")]: {
+      justifyContent: "space-between"
+    }
   },
   titleBasicInfo: {
     color: "#25252a",
     fontSize: 16,
     fontWeight: 600
+  },
+  textName: {
+    marginLeft: 5
   }
 }));

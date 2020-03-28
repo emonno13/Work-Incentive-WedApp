@@ -266,14 +266,19 @@ export default function EnhancedTable(props) {
                       to={{
                         pathname: `${id}/TaskDetail`,
                         state: {
-                          taskName: `${row.task}`,
-                          statusName: `${row.status}`
+                          task: `${row.task}`,
+                          status: `${row.status}`,
+                          progress: `${row.progress}`,
+                          duoDate: `${row.duoDate}`,
+                          name: `${row.name}`,
+                          avatar: `${row.avatar}`,
+                          result: `${row.result}`
                         }
                       }}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.task}
+                      key={row.id}
                       selected={isItemSelected}
                       //onClick={(event) => handleClick(event, row.name)}
                       //onClick={() => alert("hi")}

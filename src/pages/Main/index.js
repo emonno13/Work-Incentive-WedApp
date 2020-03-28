@@ -158,7 +158,7 @@ const MainTab = (props) => {
             </IconButton>
           </Hidden>
           <Box component="div" className={classes.groupAvatar} m={1}>
-            <Typography variant="h6" noWrap className={classes.nameAppBar}>
+            <Typography variant="h5" noWrap className={classes.nameAppBar}>
               Chipu
             </Typography>
             <Divider orientation="vertical" flexItem />
