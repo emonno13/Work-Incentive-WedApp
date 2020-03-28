@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Grid, IconButton } from "@material-ui/core";
+import { Typography, Box, Grid, IconButton, Button } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import useStyles from "./style";
 import { useHistory, useParams } from "react-router-dom";
@@ -9,7 +9,7 @@ const TaskDetail = (props) => {
   const { id } = useParams();
   const history = useHistory();
   const { taskName } = props.location.state;
-  console.log(taskName);
+  console.log(id);
   return (
     <Box className={classes.root}>
       <Grid container className={classes.groupHeader}>
@@ -23,7 +23,13 @@ const TaskDetail = (props) => {
             {taskName}
           </Typography>
         </Grid>
+        <Grid container item xs={12} lg={"true"} justify="flex-end">
+          <Button variant="outlined" disabled className={classes.statusButton}>
+            <Typography className={classes.statusButonText}>Doing</Typography>
+          </Button>
+        </Grid>
       </Grid>
+      <Grid></Grid>
     </Box>
   );
 };

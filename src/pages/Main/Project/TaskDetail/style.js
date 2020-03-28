@@ -1,4 +1,4 @@
-import { makeStyles, fade } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2)
@@ -9,60 +9,18 @@ export default makeStyles((theme) => ({
   backButton: {
     color: "#25828b"
   },
-  groupFilter: {
+  statusButton: {
+    color: "#25828b",
+    width: 100,
+    height: 50,
+    borderRadius: 8,
+    border: "solid 1px rgba(37, 130, 139, 0.5)",
     marginTop: 10
   },
-  ///SEARCH BUTTON
-  groupSearch: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    marginLeft: 15,
-    marginTop: 10,
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "flex-start"
-    }
-  },
-  search: {
-    borderRadius: 20,
-    position: "relative",
-    backgroundColor: fade(theme.palette.common.black, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.25)
-    },
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "auto"
-    }
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  inputRoot: {
-    color: "inherit"
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "15ch",
-      "&:focus": {
-        width: "30ch"
-      }
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "15ch",
-      "&:focus": {
-        width: "20ch"
-      }
-    }
+  statusButonText: {
+    fontSize: 15,
+    color: "#25828b",
+    textAlign: "center",
+    fontWeight: 500
   }
 }));

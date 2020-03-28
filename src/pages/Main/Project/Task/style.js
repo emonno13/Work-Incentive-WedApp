@@ -12,6 +12,23 @@ export default makeStyles((theme) => ({
   groupFilter: {
     marginTop: 10
   },
+  filterStatusInput: {
+    marginTop: 10,
+    marginLeft: 15
+  },
+  filterChargeInput: { marginTop: 10 },
+  createButton: {
+    background: "#25828b",
+    width: 100,
+    borderRadius: 8,
+    marginTop: 10
+  },
+  createButtonText: {
+    fontSize: 10,
+    color: "#ffffff",
+    textAlign: "center",
+    fontWeight: 500
+  },
   ///SEARCH BUTTON
   groupSearch: {
     display: "flex",

@@ -172,6 +172,24 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: 10,
     width: 1
+  },
+  doingStatus: {
+    background: "#25828b",
+    borderRadius: 23,
+    padding: 2,
+    color: "#ffffff"
+  },
+  pauseStatus: {
+    background: "#6f6f6f",
+    borderRadius: 23,
+    padding: 2,
+    color: "#ffffff"
+  },
+  doneStatus: {
+    background: "#bfda8d",
+    borderRadius: 23,
+    padding: 2,
+    color: "#ffffff"
   }
 }));
 
@@ -181,7 +199,6 @@ export default function EnhancedTable(props) {
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  // const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
@@ -207,10 +224,6 @@ export default function EnhancedTable(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
-  // const handleChangeDense = (event) => {
-  //   setDense(event.target.checked);
-  // };
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
@@ -248,9 +261,6 @@ export default function EnhancedTable(props) {
                   return (
                     <TableRow
                       hover
-                      //onClick={(event) => handleClick(event, row.name)}
-                      //onClick={() => alert("hi")}
-
                       component={NavLink}
                       style={{ textDecoration: "none" }}
                       to={{
@@ -259,12 +269,14 @@ export default function EnhancedTable(props) {
                           taskName: `${row.task}`
                         }
                       }}
-                      //onDoubleClick={() => alert("hi")}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
                       key={row.task}
                       selected={isItemSelected}
+                      //onClick={(event) => handleClick(event, row.name)}
+                      //onClick={() => alert("hi")}
+                      //onDoubleClick={() => alert("hi")}
                     >
                       <TableCell padding="checkbox" />
                       {/**/}
@@ -279,13 +291,7 @@ export default function EnhancedTable(props) {
                         {row.status === "Doing" && (
                           <Typography
                             align="center"
-                            style={{
-                              background: "#25828b",
-                              borderRadius: 23,
-                              padding: 2,
-                              color: "#ffffff"
-                            }}
-                            //className={classes.textContent}
+                            className={classes.doingStatus}
                           >
                             {row.status}
                           </Typography>
@@ -293,13 +299,7 @@ export default function EnhancedTable(props) {
                         {row.status === "Done" && (
                           <Typography
                             align="center"
-                            style={{
-                              background: "#bfda8d",
-                              borderRadius: 23,
-                              padding: 2,
-                              color: "#ffffff"
-                            }}
-                            //className={classes.textContent}
+                            className={classes.doneStatus}
                           >
                             {row.status}
                           </Typography>
@@ -307,13 +307,7 @@ export default function EnhancedTable(props) {
                         {row.status === "Pause" && (
                           <Typography
                             align="center"
-                            style={{
-                              background: "#6f6f6f",
-                              borderRadius: 23,
-                              padding: 2,
-                              color: "#ffffff"
-                            }}
-                            //className={classes.textContent}
+                            className={classes.pauseStatus}
                           >
                             {row.status}
                           </Typography>
@@ -388,10 +382,6 @@ export default function EnhancedTable(props) {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-      {/* <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      /> */}
     </Box>
   );
 }

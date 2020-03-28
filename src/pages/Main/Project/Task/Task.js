@@ -16,7 +16,7 @@ import TaskTable from "./TaskTable";
 const dataApi = {
   tasks: [
     {
-      status: "Pause",
+      status: "Doing",
       task: `[Content] Project A1`,
       progress: 2,
       duoDate: "14 Feb 2020",
@@ -130,7 +130,7 @@ const Task = () => {
           <TextField
             name="option"
             onChange={handleChangeStatus}
-            style={{ marginTop: 10, marginLeft: 15 }}
+            className={classes.filterStatusInput}
             select
             SelectProps={{ native: true }}
             value={optionStatus}
@@ -149,7 +149,7 @@ const Task = () => {
           <TextField
             name="option"
             onChange={handleChangeCharge}
-            style={{ marginTop: 10 }}
+            className={classes.filterChargeInput}
             select
             SelectProps={{ native: true }}
             value={optionCharge}
@@ -168,24 +168,10 @@ const Task = () => {
         <Grid container item xs={12} lg={"true"} justify="flex-end">
           <Button
             variant="outlined"
-            style={{
-              background: "#25828b",
-              width: 100,
-              borderRadius: 8,
-              marginTop: 10
-            }}
+            className={classes.createButton}
             onClick={() => alert("Create")}
           >
-            <Typography
-              style={{
-                fontSize: 10,
-                color: "#ffffff",
-                textAlign: "center",
-                fontWeight: 500
-              }}
-            >
-              Create
-            </Typography>
+            <Typography className={classes.createButtonText}>Create</Typography>
           </Button>
         </Grid>
       </Grid>
