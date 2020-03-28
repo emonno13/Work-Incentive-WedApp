@@ -331,9 +331,6 @@ export default function EnhancedTable(props) {
                           name="read-only"
                           value={row.progress}
                           readOnly
-                          // onChange={(event, newValue) => {
-                          //   setValue(newValue);
-                          // }}
                           icon={<AppleIcon fontSize="inherit" />}
                         />
                       </TableCell>

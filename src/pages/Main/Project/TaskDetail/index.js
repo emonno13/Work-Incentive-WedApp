@@ -8,7 +8,8 @@ import {
   Avatar
 } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import useStyles from "./style";
+import AppleIcon from "@material-ui/icons/Apple";
+import useStyles, { StyledRating } from "./style";
 import { useHistory, useParams } from "react-router-dom";
 
 const TaskDetail = (props) => {
@@ -21,8 +22,7 @@ const TaskDetail = (props) => {
     progress,
     duoDate,
     name,
-    avatar,
-    result
+    avatar
   } = props.location.state;
   console.log(id);
   return (
@@ -48,7 +48,7 @@ const TaskDetail = (props) => {
       </Grid>
       <Grid container className={classes.groupBasicInfo}>
         {/**/}
-        <Grid item xs={5} lg={2}>
+        <Grid item xs={6} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>REPORT TO</Typography>
           <Grid container alignItems="center" justify="space-between">
             <Grid item xs={2}>
@@ -67,7 +67,7 @@ const TaskDetail = (props) => {
           </Grid>
         </Grid>
         {/**/}
-        <Grid item xs={5} lg={2}>
+        <Grid item xs={5} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>IN CHARGE</Typography>
           <Grid container alignItems="center" justify="space-between">
             <Grid item xs={2}>
@@ -79,19 +79,28 @@ const TaskDetail = (props) => {
           </Grid>
         </Grid>
         {/**/}
-        <Grid item xs={6} lg={2}>
+        <Grid item xs={6} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>PROGRESS</Typography>
-          <Typography>a</Typography>
+          <Grid container alignItems="flex-start">
+            <StyledRating
+              name="read-only"
+              value={progress}
+              readOnly
+              icon={<AppleIcon fontSize="inherit" />}
+            />
+            <Typography className={classes.textProgress}>{`${progress *
+              20}%`}</Typography>
+          </Grid>
         </Grid>
         {/**/}
-        <Grid item xs={6} lg={2}>
+        <Grid item xs={5} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>START DATE</Typography>
-          <Typography>a</Typography>
+          <Typography className={classes.textDate}>12 Fed 2020</Typography>
         </Grid>
         {/**/}
-        <Grid item xs={6} lg={2}>
+        <Grid item xs={5} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>DUE DATE</Typography>
-          <Typography>a</Typography>
+          <Typography className={classes.textDate}>{duoDate}</Typography>
         </Grid>
       </Grid>
     </Box>

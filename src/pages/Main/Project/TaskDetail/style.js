@@ -1,4 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Rating } from "@material-ui/lab";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+export const StyledRating = withStyles({
+  iconFilled: {
+    color: "#ff4757"
+  }
+})(Rating);
 export default makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2)
@@ -26,8 +32,18 @@ export default makeStyles((theme) => ({
   groupBasicInfo: {
     marginLeft: 50,
     marginTop: 15,
-    [theme.breakpoints.up("lg")]: {
-      justifyContent: "space-between"
+    // [theme.breakpoints.up("lg")]: {
+    //   justifyContent: "space-between"
+    // },
+    [theme.breakpoints.down("lg")]: {
+      alignItems: "space-between"
+    }
+  },
+  groupItemBasicInfo: {
+    marginTop: 5,
+    marginRight: 20,
+    [theme.breakpoints.down("lg")]: {
+      marginTop: 20
     }
   },
   titleBasicInfo: {
@@ -36,6 +52,20 @@ export default makeStyles((theme) => ({
     fontWeight: 600
   },
   textName: {
+    marginLeft: 5,
+    color: "#25828b",
+    lineHeight: 0.88,
+    fontWeight: 500
+  },
+  textProgress: {
+    color: "#828296",
+    fontSize: 16,
+    lineHeight: 1.63,
     marginLeft: 5
+  },
+  textDate: {
+    color: "#828296",
+    lineHeight: 1.63,
+    fontSize: 16
   }
 }));
