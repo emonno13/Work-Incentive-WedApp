@@ -175,7 +175,7 @@ const Task = () => {
           </Button>
         </Grid>
       </Grid>
-      <Box component="div" style={{ marginTop: 30 }}>
+      <Box component="div" className={classes.taskTable}>
         <TaskTable data={data.tasks} />
       </Box>
     </Box>

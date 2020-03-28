@@ -81,5 +81,9 @@ export default makeStyles((theme) => ({
         width: "20ch"
       }
     }
+  },
+  //////////////////////////////////////////////////////////////////////
+  taskTable: {
+    marginTop: 30
   }
 }));
