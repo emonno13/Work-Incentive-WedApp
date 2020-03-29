@@ -12,7 +12,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
-  TextField
+  InputBase
 } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import AppleIcon from "@material-ui/icons/Apple";
@@ -22,7 +22,7 @@ import ShowMoreText from "../../../../components/ShowMoreText";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import ClearIcon from "@material-ui/icons/Clear";
 import useStyles, { StyledRating } from "./style";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import uuid from "uuid/v1";
 const dataApi = {
   taskDescription: `Thay đổi content của "Đăng ký" tại Home Guest và error message tại đăng kí tiện ích
@@ -37,12 +37,29 @@ const dataApi = {
       name: "file_number_onefdfdsafdsafdsafsadfasfasdfsadfafdfdsffdsfs"
     }
   ],
-  comments: []
+  comments: [
+    {
+      avatar:
+        "https://image.gala.de/22093444/uncropped-0-0/cbea3dbd6c31ff33fee4c7be3800f24e/kS/jessica-alba-teaser.jpg",
+      name: "Nam Dang",
+      content:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+      time: "14 Mar 2018 - 14:50"
+    },
+    {
+      avatar:
+        "https://image.gala.de/22093444/uncropped-0-0/cbea3dbd6c31ff33fee4c7be3800f24e/kS/jessica-alba-teaser.jpg",
+      name: "Hai Anh",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      time: "14 Mar 2018 - 14:50"
+    }
+  ]
 };
 
 const TaskDetail = (props) => {
   const classes = useStyles();
-  const { id } = useParams();
+  //const { id } = useParams();
   const history = useHistory();
   const {
     task,
@@ -52,7 +69,7 @@ const TaskDetail = (props) => {
     name,
     avatar
   } = props.location.state;
-  console.log(id);
+  //console.log(id);
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
@@ -85,7 +102,7 @@ const TaskDetail = (props) => {
         <Grid item xs={6} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>REPORT TO</Typography>
           <Grid container alignItems="center" justify="space-between">
-            <Grid item xs={2}>
+            <Grid item xs={"auto"}>
               <Avatar
                 src={
                   "https://www.imore.com/sites/imore.com/files/field/image/2014/03/topic_steve_jobs.png"
@@ -93,7 +110,7 @@ const TaskDetail = (props) => {
                 alt="User"
               />
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={"true"}>
               <Typography className={classes.textName}>
                 {"Steve Jobs"}
               </Typography>
@@ -104,10 +121,10 @@ const TaskDetail = (props) => {
         <Grid item xs={5} lg={2} className={classes.groupItemBasicInfo}>
           <Typography className={classes.titleBasicInfo}>IN CHARGE</Typography>
           <Grid container alignItems="center" justify="space-between">
-            <Grid item xs={2}>
+            <Grid item xs={"auto"}>
               <Avatar src={avatar} alt="User" />
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={"true"}>
               <Typography className={classes.textName}>{name}</Typography>
             </Grid>
           </Grid>
@@ -214,28 +231,28 @@ const TaskDetail = (props) => {
               <Typography className={classes.headerTitle}>REVIEWS</Typography>
             </Box>
             <Grid container item className={classes.groupWriteComment}>
-              <Grid item xs={2}>
+              <Grid item xs={"auto"}>
                 <Avatar
                   src={avatar}
                   alt="User"
                   className={classes.commentAvatar}
                 />
               </Grid>
-              <Grid item xs={10}>
-                <TextField
+              <Grid item xs={"true"}>
+                <InputBase
                   id="outlined-textarea"
                   fullWidth
                   multiline
-                  variant="outlined"
                   value={value}
                   onChange={handleChange}
                   size="small"
+                  className={classes.commentInput}
                   //label="Multiline Placeholder"
                   //placeholder="Placeholder"
                 />
               </Grid>
             </Grid>
-            <Grid container item xs={12} lg={"true"} justify="flex-end">
+            <Grid container xs={12} justify="flex-end">
               <Button
                 variant="outlined"
                 className={classes.commentPostButton}
@@ -246,6 +263,35 @@ const TaskDetail = (props) => {
                 </Typography>
               </Button>
             </Grid>
+            {/**/}
+            <Grid item xs={12}>
+              {dataApi.comments.map((item) => (
+                <Box
+                  component="div"
+                  display="flex"
+                  flexDirection="row"
+                  className={classes.rootItemComment}
+                >
+                  <Avatar
+                    src={item.avatar}
+                    alt="User"
+                    className={classes.avatarItemComment}
+                  />
+                  <Box component="div">
+                    <Typography className={classes.nameItemComment}>
+                      {item.name}
+                    </Typography>
+                    <Typography className={classes.contentItemComment}>
+                      {item.content}
+                    </Typography>
+                    <Typography className={classes.timeItemComment}>
+                      {item.time}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Grid>
+            {/**/}
           </Paper>
         </Grid>
       </Grid>

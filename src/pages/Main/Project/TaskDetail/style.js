@@ -106,14 +106,22 @@ export default makeStyles((theme) => ({
   fileIconRemove: { color: "#c4737d" },
   commentAvatar: {
     width: theme.spacing(5),
-    height: theme.spacing(5)
+    height: theme.spacing(5),
+    marginRight: 10
+  },
+  commentInput: {
+    borderRadius: 10,
+    border: "solid 1px rgba(37, 37, 42, 0.2)",
+    padding: 10,
+    marginLeft: 0
+    //borderColor: "#ffffff"
   },
   commentPostButton: {
     background: "#25828b",
-    width: 50,
-    borderRadius: 8,
+    width: 40,
+    borderRadius: 4,
     marginTop: 10,
-    padding: 5
+    padding: 6
   },
   commentPostButtonText: {
     fontSize: 10,
@@ -122,6 +130,17 @@ export default makeStyles((theme) => ({
     fontWeight: 500
   },
   groupWriteComment: {
-    marginTop: 20
-  }
+    marginTop: 20,
+    justifyContent: "space-between"
+  },
+  rootItemComment: { marginTop: 10 },
+  avatarItemComment: { marginTop: 5, marginRight: 10 },
+  nameItemComment: { fontSize: 16, color: " #25828b", fontWeight: "bold" },
+  contentItemComment: {
+    fontSize: 16,
+    lineHeight: 1.63,
+    color: "#828296",
+    marginTop: 5
+  },
+  timeItemComment: { fontSize: 14, color: "#828296", marginTop: 5 }
 }));
